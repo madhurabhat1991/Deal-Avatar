@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--Author: Madhura Bhat-->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head></h:head>
+    <h:body>
+        <ui:composition template = "templates/common.xhtml">
+            <ui:define name="title">Saved Items</ui:define>
+            <ui:define name = "content">
+                <h:form>
+
+                    <h5>Saved Items</h5>
+                    <h:dataTable rows="#{login.account.savedItems.size()}"
+                                 value="#{login.account.savedItems}" var="obj"
+                                 styleClass="order-table"
+                                 headerClass="order-table-header"
+                                 rowClasses="order-table-odd-row,order-table-even-row"
+                                 style="text-align: left; padding: 20px; width: 50%">
+                        <h:column>
+                            <h:commandLink value="#{obj.thread.title}"
+                                           action="#{threadBody.updateThreadBody(obj.thread)}"
+                                           style="text-decoration: none;">
+                            </h:commandLink>
+                        </h:column>
+                        <h:column>
+                            <h:commandButton id="delete" value="Delete"
+                                             action="#{login.account.deleteSavedItem(obj.saveId)}"    />
+                        </h:column>
+                    </h:dataTable>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

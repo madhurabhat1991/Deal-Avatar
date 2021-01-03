@@ -1,0 +1,126 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--Author: Madhura Bhat-->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head></h:head>
+    <h:body>
+        <ui:composition template = "templates/common.xhtml">
+            <ui:define name="title">Thread Details</ui:define>
+            <ui:define name = "content">
+                <h:form>
+
+                    <p style="background-color: #a3b5d1; color: white; font-size: small; text-align: center; width: 132px; padding: 5px;">
+                        <b>
+                            <c:choose>
+                                <c:when test="#{threadBody.thread.status == 'approve'}">
+                                    FRONTPAGE DEAL
+                                </c:when>
+                                <c:when test="#{threadBody.thread.status == 'reject'}">
+                                    THREAD REJECTED
+                                </c:when>
+                                <c:when test="#{threadBody.thread.status == 'new'}">
+                                    NEW THREAD
+                                </c:when>
+                            </c:choose>
+                        </b>
+                    </p>
+
+                    <h3>#{threadBody.thread.title}</h3>
+                    <br></br>
+
+                    <p>Created by: #{threadBody.thread.author} on #{threadBody.thread.dateTime}</p>
+                    <p>Store: #{threadBody.thread.store} &nbsp; &nbsp; &nbsp; &nbsp;
+                        Price: #{login.df.format(threadBody.thread.price)}</p>
+
+                    Description
+                    <div class="boxed" style="border: 1px solid black; width: 65%; background-color: whitesmoke; padding: 20px">
+                        <p>#{threadBody.thread.content}</p>
+                    </div>
+                    <br></br><br></br>
+
+                    <c:choose>
+                        <c:when test="#{threadBody.upOrDown(login.account.accountId, 'up')}">
+                            <h:commandButton  action="#{threadBody.thumbsUpDown(login.account.accountId, 'up')}" 
+                                              image="images/thumb_up_green.png" />  &nbsp; &nbsp;
+                        </c:when>
+                        <c:otherwise>
+                            <h:commandButton  action="#{threadBody.thumbsUpDown(login.account.accountId, 'up')}" 
+                                              image="images/thumb_up.png" />  &nbsp; &nbsp;
+                        </c:otherwise>
+                    </c:choose>
+
+                    <c:choose>
+                        <c:when test="#{threadBody.upOrDown(login.account.accountId, 'down')}">
+                            <h:commandButton  action="#{threadBody.thumbsUpDown(login.account.accountId, 'down')}" 
+                                              image="images/thumb_down_red.png" />  &nbsp; &nbsp;
+                        </c:when>
+                        <c:otherwise>
+                            <h:commandButton  action="#{threadBody.thumbsUpDown(login.account.accountId, 'down')}" 
+                                              image="images/thumb_down.png" />  &nbsp; &nbsp;
+                        </c:otherwise>
+                    </c:choose>
+
+                    <b>Votes: #{threadBody.thread.rating}</b> &nbsp; &nbsp;
+                    <br></br><br></br>
+
+                    <h:commandButton id="clicktosave" value="Save Item"
+                                     action="#{threadBody.saveItem(login.account.accountId)}" /> 
+
+                    <br></br><br></br>
+                    <p>Comment:<br></br>
+                        <h:inputText id="inputText"
+                                     style="width: 65%; height: 50px"
+                                     title="Add comment"
+                                     value="#{threadBody.inputText}">
+                        </h:inputText>
+                    </p>
+                    <p>
+                        <h:commandButton id="commentsubmit" value="Reply"
+                                         action="#{threadBody.saveComment(login.account.accountId, 0)}"    />
+                    </p>
+                    <br></br>
+
+                    <h5>Replies</h5>
+                    <div class="boxed" style="border: 1px black; width: 65%">
+                        <h:dataTable rows="#{threadBody.threadReplies.size()}"
+                                     value="#{threadBody.threadReplies}" var="obj"
+                                     styleClass="order-table"
+                                     headerClass="order-table-header"
+                                     rowClasses="order-table-odd-row,order-table-even-row">
+
+                            <h:column>
+                                <div style="text-align: left; padding: 8px">
+                                    <p style="color: darkgray; font-style: italic; font-size: smaller">
+                                        #{obj.replyBy} replied on #{obj.dateTime}</p>
+                                    <p style="background-color: #d9d7d7; font-size: small; width: 75%;">
+                                        <h:outputText 
+                                            value="#{threadBody.getOriginalReply(obj.replyFor)}" 
+                                            style="white-space: pre;"
+                                            rendered="#{obj.replyFor > 0}" />        
+                                    </p>
+                                    <p>#{obj.reply}</p>
+
+                                    <h:inputText id="inputReply"
+                                                 style="width: 40%"
+                                                 title="Add reply"
+                                                 value="#{threadBody.inputText}">
+                                    </h:inputText>&nbsp;
+                                    <h:commandButton id="replySubmit" value="Reply"
+                                                     action="#{threadBody.saveComment(login.account.accountId, obj.threadReplyId)}"    />
+                                </div>
+                            </h:column>
+                        </h:dataTable>
+                    </div>
+
+                    <br></br><br></br>
+                    <a href="javascript:history.back()" style="text-decoration: none">Return</a>
+
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

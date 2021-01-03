@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"></link>
+        <link href="css/commoncss.css?rnd=132" rel="stylesheet" />
+        <meta http-equiv="cache-control" content="no-cache" />
+        <meta http-equiv="pragma" content="no-cache" />
+        <meta http-equiv="refresh"/>
+    </h:head>
+    <h:body>
+        <ui:composition> 
+            <h:form>
+                <header>
+                    <div class="navbar fixed-top navbar-expand-lg navbar-light bg-light quick-links">
+                        <div class="navbar-nav">
+                            <img src="images/DALogo.png" height="60px"></img>
+                            <h:link outcome="frontPage.xhtml">Front Page</h:link>
+                            <h:link outcome="forumPage.xhtml">Forums Page</h:link>
+                            <h:link outcome="stores.xhtml">Stores</h:link>
+                            <h:link outcome="dealAlerts.xhtml">Deal Alerts</h:link>
+                            <h:link outcome="saveItem.xhtml">Saved Items</h:link>
+                            <h:link outcome="myAccount.xhtml">My Account</h:link>
+                            <h:link outcome="notifications.xhtml" class="notif">
+                                <span><img src="images/BellIcon.png" width="19px"></img></span>
+                                <c:if test="#{login.account.showNotifications().size() > 0}">
+                                    <span class="badge">#{login.account.showNotifications().size()}</span>
+                                </c:if>
+                            </h:link>
+                            <h:commandLink action="#{login.account.signOut()}">Sign Out</h:commandLink>
+                        </div>
+                    </div>
+                </header>
+            </h:form>	
+        </ui:composition>
+    </h:body>
+</html>
+

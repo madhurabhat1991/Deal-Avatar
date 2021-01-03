@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--Author: Madhura Bhat-->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head></h:head>
+    <h:body>
+        <ui:composition template = "templates/commonSidebar.xhtml">
+            <ui:define name="title">Delete Account</ui:define>
+            <ui:define name = "content">
+                <h3>Delete Account</h3>
+                <br/>
+                <p>Once deleted, you will not be able to retrieve any of your account information
+                    and you will be automatically signed out from the Deal Avatar application.</p>
+                <p>Are you sure you want to delete your account?</p>
+                <h:commandButton id="delete" value="Delete Account"
+                                 action="#{myAccount.deleteAccount(login.account)}" />
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

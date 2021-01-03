@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--Author: Madhura Bhat-->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head></h:head>
+    <h:body>
+        <ui:composition template = "templates/common.xhtml">
+            <ui:define name="title">Notifications</ui:define>
+            <ui:define name = "content">
+                <h:form>
+
+                    <h5>New notifications</h5><br></br>
+
+                    <c:choose>
+                        <c:when test="#{login.account.type == 'editor'}">
+                            <h:dataTable rows="#{login.account.showNotifications().size()}"
+                                         value="#{login.account.showNotifications()}" var="obj"
+                                         styleClass="order-table"
+                                         headerClass="order-table-header"
+                                         rowClasses="order-table-odd-row,order-table-even-row">
+                                <h:column>
+                                    <div style="text-align: left; padding-left: 35px">
+                                        <p></p>
+                                        <p>#{obj.store}'s thread
+                                            <b><h:commandLink value="#{obj.title}" action="#{threadBody.updateThreadBody(obj)}" /></b>
+                                            created by #{obj.author}
+                                            got #{obj.rating} votes. Click here to approve or reject</p>
+                                        <h:commandButton id="approve" value="Approve" 
+                                                         action="#{login.editorAccount.approveOrReject(obj.dealId, 'approve')}" />
+                                        <h:commandButton id="reject" value="Reject" 
+                                                         action="#{login.editorAccount.approveOrReject(obj.dealId, 'reject')}" />
+                                        <p></p>
+                                    </div>
+                                </h:column>
+                            </h:dataTable>
+                        </c:when>
+                        <c:when test="#{login.account.type == 'user'}">
+                            <h:dataTable rows="#{login.account.showNotifications().size()}"
+                                         value="#{login.account.showNotifications()}" var="obj"
+                                         styleClass="order-table"
+                                         headerClass="order-table-header"
+                                         rowClasses="order-table-odd-row,order-table-even-row">
+                                <h:column>
+                                    <div style="text-align: left; padding-left: 35px">
+                                        <p></p>
+                                        <p>Check out this deal from #{obj.store}:  
+                                            <b><h:commandLink value="#{obj.title}" action="#{threadBody.updateThreadBody(obj)}" /></b>
+                                        </p>
+                                        <h:commandButton id="markRead" value="Mark as read" 
+                                                         action="#{login.userAccount.markRead(obj.dealId)}" />
+                                        <p></p>
+                                    </div>
+                                </h:column>
+                            </h:dataTable>
+
+                            <br></br><br></br>
+                            <h5>Read notifications</h5><br></br>
+                            <h:dataTable rows="#{login.userAccount.showReadNotifications().size()}"
+                                         value="#{login.userAccount.showReadNotifications()}" var="obj"
+                                         styleClass="order-table"
+                                         headerClass="order-table-header"
+                                         rowClasses="order-table-odd-row,order-table-even-row">
+                                <h:column>
+                                    <div style="text-align: left; padding-left: 35px">
+                                        <p></p>
+                                        <p>Check out this deal from #{obj.store}:  
+                                            <b><h:commandLink value="#{obj.title}" action="#{threadBody.updateThreadBody(obj)}" /></b>
+                                        </p>
+                                        <p></p>
+                                    </div>
+                                </h:column>
+                            </h:dataTable>
+                        </c:when>
+                    </c:choose>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

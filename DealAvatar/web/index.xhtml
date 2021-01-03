@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--Author: Madhura Bhat-->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <style>
+        body {
+            background-image: url("images/WelcomePhoto.png");
+            background-repeat: no-repeat;
+            background-size: 750px;
+            background-position-x: right;
+        }
+    </style>
+    <h:head>
+        <title>Welcome</title>
+        <link href="css/commoncss.css?rnd=132" rel="stylesheet" />
+        <meta http-equiv="cache-control" content="no-cache" />
+        <meta http-equiv="pragma" content="no-cache" />
+        <meta http-equiv="refresh"/>
+    </h:head>
+    <h:body>
+        <div style="padding-left: 80px;">
+            <h:form>
+                <img src="images/DALogo2.png" height="100px"></img>
+                <h1>Welcome to Deal Avatar!</h1><br></br>
+                <h4>New to Deal Avatar? Register Here</h4>
+                <h:commandButton id="signUp" value="Sign Up" immediate="true"
+                                 action="signUp.xhtml" />
+                <br></br>
+                <br></br>
+                <h4>Returning user? Login Here</h4>
+                <h:commandButton id="login" value="Login" immediate="true"
+                                 action="login.xhtml" />
+                <br></br>
+                <br></br>
+            </h:form>
+        </div>
+    </h:body>
+</html>
+

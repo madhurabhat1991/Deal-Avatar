@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--Author: Madhura Bhat-->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head></h:head>
+    <h:body>
+        <ui:composition template = "templates/common.xhtml">
+            <ui:define name="title">Deal Alerts</ui:define>
+            <ui:define name = "content">
+                <h:form>
+
+                    <h5>Add a custom alert</h5>
+                    <p>
+                        <h:inputText id="alert"
+                                     title="Enter keywords, stores, brands"
+                                     value="#{dealAlert.alert}"
+                                     style="width: 50%;">
+                        </h:inputText>
+                    </p>
+                    <p>
+                        <h:commandButton id="submit" value="Add Alert"
+                                         action="#{dealAlert.addAlert(login.account.accountId)}" />
+                    </p>
+
+                    <br></br><br></br>
+                    <h5>Manage your deal alerts</h5>
+                    <h:dataTable rows="#{dealAlert.getAlerts(login.account.accountId).size()}"
+                                 value="#{dealAlert.getAlerts(login.account.accountId)}" var="alert"
+                                 styleClass="order-table"
+                                 headerClass="order-table-header"
+                                 rowClasses="order-table-odd-row,order-table-even-row"
+                                 style="text-align: left; padding: 20px; width: 50%">
+                        <h:column>
+                            #{alert.alert}
+                        </h:column>
+                        <h:column>
+                            <h:commandButton id="delete" value="Delete"
+                                             action="#{dealAlert.deleteAlert(alert.alertId)}"    />
+                        </h:column>
+                    </h:dataTable>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

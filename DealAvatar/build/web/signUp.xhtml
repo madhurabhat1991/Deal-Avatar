@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--Author: Madhura Bhat-->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <style>
+        body {
+            background-image: url("images/WelcomePhoto.png");
+            background-repeat: no-repeat;
+            background-size: 750px;
+            background-position-x: right;
+        }
+    </style>
+    <h:head>
+        <title>Sign Up</title>
+        <link href="css/commoncss.css?rnd=132" rel="stylesheet" />
+        <meta http-equiv="cache-control" content="no-cache" />
+        <meta http-equiv="pragma" content="no-cache" />
+        <meta http-equiv="refresh"/>
+    </h:head>
+    <h:body>
+        <div style="padding-left: 80px">
+            <h:form>
+                <img src="images/DALogo2.png" height="100px"></img>
+                <h3>Create a new account</h3>     
+
+                <p>Account ID<br></br>
+                    <h:inputText id="account_id" required ="true" 
+                                 requiredMessage="The account ID field cannot be empty"
+                                 title="Account id (3-20 characters) must contain at least 1 digit and 1 alphabet"
+                                 value="#{signUp.accountId}"
+                                 validatorMessage="Account id (3-20 characters) must contain at least 1 digit and 1 alphabet">
+                        <f:validateLength maximum="20" minimum="3" />
+                    </h:inputText>
+                </p>                        
+
+                <p>Password<br></br>
+                    <h:inputText id="password" required ="true" 
+                                 requiredMessage="The password field cannot be empty"
+                                 title="Password (3-20 characters) must contain at least 1 digit,
+                                 1 alphabet and 1 special character"
+                                 value="#{signUp.password}"
+                                 validatorMessage="Password (3-20 characters) must contain at least 1 digit,
+                                 1 alphabet and 1 special character">
+                        <f:validateLength maximum="20" minimum="3" />
+                    </h:inputText>
+                </p>
+
+                <p>Full Name<br></br>
+                    <h:inputText id="name" required ="true" 
+                                 requiredMessage="The name field cannot be empty"
+                                 title="Please enter your Full Name"
+                                 value="#{signUp.name}">
+
+                    </h:inputText>
+                </p>
+
+                <p>
+                    <h:commandButton id="submit" value="Submit"
+                                     action="signupConfirmation.xhtml" />
+                    <br></br><br></br>
+                    <i style="font-size: small">Scroll down to see the registration errors</i>
+                </p>
+
+                <br></br>
+                <br></br>
+                <br></br>
+                <h:commandButton id="return" value="Return" immediate="true"
+                                 action="index.xhtml" />         
+                <br></br>
+            </h:form>
+        </div>
+    </h:body>
+</html>
+

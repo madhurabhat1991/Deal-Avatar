@@ -1,0 +1,127 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Nov 7, 2020, 7:18:03 PM
+    Author     : Madhura Bhat
+*/
+
+/*page*/
+*{
+    font-family: 'Maiandra GD','Baskerville Old Face',Arial,Helvetica,sans-serif;
+}
+
+body {
+    background-color: #ebeded;
+    margin: 20px 0px;
+    padding-top: 80px;
+    display: flex;
+    flex-direction: column;
+}
+
+/*only content excluding header and footer*/
+body > .content_body{
+    padding-left: 80px;
+    padding-right: 80px;
+}
+
+.myAccount {
+    text-decoration: none;
+}
+/*header and footer color*/
+.bg-light {
+    background-color: #151a69 !important;
+    /*background-color: #4d4f4f !important;*/
+    color: white;
+}
+
+/*header properties*/
+header .navbar {
+    color: black;
+    align-items: center;
+    font-weight: bold;
+    padding: 20px;
+    text-decoration: none;
+}
+
+header .navbar-nav {
+    /*margin-left: auto;*/
+    margin-right: 1px;
+    /*padding: 0px 100px 0px 100px;*/
+}
+
+header .navbar-nav > a {
+    margin-left: 15px;
+    margin-right: 15px;
+    color: white;
+}
+
+header .notif{
+    position: relative;
+}
+
+header .notif .badge {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    padding: 5px 10px;
+    border-radius: 50%;
+    background-color: red;
+    color: white;
+}
+
+/*footer properties*/
+footer .footer-band {
+    padding: 50px;
+    text-decoration: none;
+}
+
+footer .footer-band .logo_img {
+    width: 30px;
+    opacity: 0.9;
+}
+
+footer .quick-links {
+    padding: 50px;
+}
+
+footer .footer-band > a {
+    color: white;
+}
+
+.quick-links .logo_img {
+    width: 15px;
+    opacity: 0.9;
+}
+
+.quick-links a:hover {
+    text-decoration: none;
+}
+
+/*datatable properties*/
+.order-table{   
+    border-collapse:collapse;
+    width: 100%;
+    border: 1px solid #4d4f4f;
+}
+
+.order-table-header{
+    text-align:center;
+    background:none repeat scroll 0 0 #cfcccc;
+    border-bottom:1px solid #4d4f4f;
+    padding:16px;
+}
+
+.order-table-odd-row{
+    text-align:center;
+    background:none repeat scroll 0 0 #ffffff;
+    border-top:1px solid #BBBBBB;
+}
+
+.order-table-even-row{
+    text-align:center;
+    background:none repeat scroll 0 0 #f5f2f2;
+    border-top:1px solid #BBBBBB;
+}

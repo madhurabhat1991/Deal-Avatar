@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--Author: Madhura Bhat-->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head></h:head>
+    <h:body>
+        <ui:composition template = "templates/common.xhtml">
+            <ui:define name="title">Front Page</ui:define>
+            <ui:define name = "content">
+                <h:form>
+
+                    <h5><b>Welcome #{login.account.name},</b></h5>
+                    <br></br>
+
+                    <h5>Showing Best Deals</h5><br></br>
+
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm">
+                                <h:dataTable rows="#{login.frontPage.getBestDeals(1).size()}"
+                                             value="#{login.frontPage.getBestDeals(1)}" var="obj"
+                                             styleClass="order-table"
+                                             headerClass="order-table-header"
+                                             rowClasses="order-table-odd-row,order-table-even-row"
+                                             style="border-color: #BBBBBB">
+                                    <h:column>
+                                        <h:commandLink value="#{obj.store}'s&#10;#{obj.title}&#10;#{login.df.format(obj.price)}&#10;#{obj.rating} votes"
+                                                       action="#{threadBody.updateThreadBody(obj)}"
+                                                       style="text-decoration: none; white-space: pre; color: black">
+                                        </h:commandLink>
+                                    </h:column>
+                                </h:dataTable>
+                            </div>
+                            <div class="col-sm">
+                                <h:dataTable rows="#{login.frontPage.getBestDeals(2).size()}"
+                                             value="#{login.frontPage.getBestDeals(2)}" var="obj"
+                                             styleClass="order-table"
+                                             headerClass="order-table-header"
+                                             rowClasses="order-table-odd-row,order-table-even-row"
+                                             style="border-color: #BBBBBB">
+                                    <h:column>
+                                        <h:commandLink value="#{obj.store}'s&#10;#{obj.title}&#10;#{login.df.format(obj.price)}&#10;#{obj.rating} votes"
+                                                       action="#{threadBody.updateThreadBody(obj)}"
+                                                       style="text-decoration: none; white-space: pre; color: black">
+                                        </h:commandLink>
+                                    </h:column>
+                                </h:dataTable>
+                            </div>
+                            <div class="col-sm">
+                                <h:dataTable rows="#{login.frontPage.getBestDeals(3).size()}"
+                                             value="#{login.frontPage.getBestDeals(3)}" var="obj"
+                                             styleClass="order-table"
+                                             headerClass="order-table-header"
+                                             rowClasses="order-table-odd-row,order-table-even-row"
+                                             style="border-color: #BBBBBB">
+                                    <h:column>
+                                        <h:commandLink value="#{obj.store}'s&#10;#{obj.title}&#10;#{login.df.format(obj.price)}&#10;#{obj.rating} votes"
+                                                       action="#{threadBody.updateThreadBody(obj)}"
+                                                       style="text-decoration: none; white-space: pre; color: black">
+                                        </h:commandLink>
+                                    </h:column>
+                                </h:dataTable>
+                            </div>
+                        </div>
+                    </div>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

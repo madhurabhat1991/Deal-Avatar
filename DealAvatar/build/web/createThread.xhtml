@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--Author: Madhura Bhat-->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head></h:head>
+    <h:body>
+        <ui:composition template = "templates/common.xhtml">
+            <ui:define name="title">Create New Thread</ui:define>
+            <ui:define name = "content">
+                <h:form>
+
+                    <h3>Create a new Thread!</h3>
+
+                    <p>Title:<br></br>
+                        <h:inputText id="title" required ="true" 
+                                     requiredMessage="The Title field cannot be empty"
+                                     title="Please enter title"
+                                     style="width: 500px"
+                                     value="#{createThread.title}">
+
+                        </h:inputText>
+                    </p>
+
+                    <p>Please enter content:<br></br>
+                        <h:inputText id="content" required ="true" 
+                                     requiredMessage="The Conent field cannot be empty"
+                                     title="Please enter content"
+                                     style="width: 500px; height: 50px"
+                                     value="#{createThread.content}">
+
+                        </h:inputText>
+                    </p>
+
+                    <p>Please enter price:<br></br>
+                        <h:inputText id="price" required ="true" 
+                                     requiredMessage="The Price field cannot be empty"
+                                     title="Please enter price"
+                                     value="#{createThread.price}">
+
+                        </h:inputText>
+                    </p>
+
+                    <p>Please enter store:<br></br>
+                        <h:inputText id="store" required ="true" 
+                                     requiredMessage="The store field cannot be empty"
+                                     title="Please enter your password"
+                                     value="#{createThread.store}">
+
+                        </h:inputText>
+                    </p>
+
+                    <p>
+                        <h:commandButton id="submit" value="Submit"
+                                         action="threadConfirmation.xhtml" />
+                    </p>	
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+
