@@ -6,7 +6,7 @@ Deal Avatar is a simulation of www.slickdeals.net, a social commerce website fea
 ## Architecture
 
 - IDE: NetBeans
-- Application: HTML, CSS, BootStrap
+- Application: HTML, CSS, Bootstrap
 - Framework: Java Server Faces (JSF)
 - Web server: GlassFish server
 - Business objects: Java
