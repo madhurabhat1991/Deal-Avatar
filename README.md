@@ -49,7 +49,7 @@ Deal Avatar is a simulation of www.slickdeals.net, a social commerce website fea
 - User will receive deal alert notifications. They can check the deals and mark it as read.
 - Editor will receive deal approval notifications. They can approve/reject a deal.
 
-![image](https://user-images.githubusercontent.com/70220146/119934351-41a95180-bf4b-11eb-958a-a04de12a92fc.png)
+![image](https://user-images.githubusercontent.com/70220146/119934600-a6fd4280-bf4b-11eb-9897-ac6dc4f0ab93.png)
 
 #### Saved Items
 - If a user likes a thread, user can save the item 
