@@ -22,7 +22,7 @@ Deal Avatar is a simulation of www.slickdeals.net, a social commerce website fea
 ![image](https://user-images.githubusercontent.com/70220146/119933822-6fda6180-bf4a-11eb-8fbf-1348fe0fd961.png)
 
 #### Forums page
-- On Forums page, user can create a new thread and see the list of threads. 
+- On Forums page, user can create a new thread and see the list of threads
 - By clicking on a thread user can check the thread details, vote up/down, post a comment
 - A thread with votes >= 2 will be sent to editor for approval
 - Once editor approves a thread, a thread becomes a deal
@@ -46,13 +46,13 @@ Deal Avatar is a simulation of www.slickdeals.net, a social commerce website fea
 ![image](https://user-images.githubusercontent.com/70220146/119934217-145ca380-bf4b-11eb-8502-cee5f80294de.png)
 
 #### Notifications
-- User will receive deal alert notifications. They can check the deals and mark it as read.
-- Editor will receive deal approval notifications. They can approve/reject a deal.
+- User will receive deal alert notifications. They can check the deals and mark it as read
+- Editor will receive deal approval notifications. They can approve/reject a deal
 
 ![image](https://user-images.githubusercontent.com/70220146/119934600-a6fd4280-bf4b-11eb-9897-ac6dc4f0ab93.png)
 
 #### Saved Items
 - If a user likes a thread, user can save the item 
-- Saved items page shows all the items saved for the user, can delete any.
+- Saved items page shows all the items saved for the user, can delete any
 
 ![image](https://user-images.githubusercontent.com/70220146/119934404-5a196c00-bf4b-11eb-8ef8-9ee924b18a89.png)
