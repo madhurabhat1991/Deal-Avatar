@@ -1,6 +1,6 @@
 # Deal Avatar
 
-Deal Avatar is a simulation of www.slickdeals.net, a social commerce website featuring crowdsourced deals and coupons from retailers. Deal Avatar relies primarily on user generated content. The best deals and coupons are voted on by its active community, and Deal Avatar’s Deal Editor team curates the best of the best for its frontpage.
+Deal Avatar is a simulation of <a href='https://slickdeals.net/'>Slickdeals</a>, a social commerce website featuring crowdsourced deals and coupons from retailers. Deal Avatar relies primarily on user generated content. The best deals and coupons are voted on by its active community, and Deal Avatar’s Deal Editor team curates the best of the best for its frontpage.
 
 
 ## Architecture
